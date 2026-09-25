@@ -48,7 +48,10 @@
 		"vscode": {
 			"settings": {
 				"remote.autoForwardPorts": false
-			}
+			},
+			"extensions": [
+				"ms-vscode.azurecli"
+			]
 		}
 	}
 
