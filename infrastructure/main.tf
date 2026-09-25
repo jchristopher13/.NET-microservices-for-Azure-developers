@@ -7,7 +7,7 @@ terraform {
     }
   }
   cloud {
-    organization = "joshua-christopher-org"
+    organization = "joshuachristopherorg"
     workspaces {
       name = "Wpm"
     }
@@ -20,6 +20,6 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "myTFResourceGroup"
+  name     = "WpmResourceGroup"
   location = "westus2"
 }
