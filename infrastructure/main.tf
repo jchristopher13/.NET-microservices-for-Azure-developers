@@ -21,5 +21,5 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "rg" {
   name     = "WpmResourceGroup"
-  location = "westus2"
+  location = "CentralUS"
 }
