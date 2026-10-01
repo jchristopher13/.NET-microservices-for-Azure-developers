@@ -24,8 +24,15 @@ jobs:
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
 
+      - name: 'Get current date'
+        id: date
+        run: echo "DATE=(date +'%Y%m%d')" >> $GITHUB_ENV
+        env:
+          DATE: ${{ steps.date.outputs.DATE }}
+          SEQ: ${{ github.run_number }}
+      
       - name: 'Build and push container image'
         run: |
-            docker build src -f src/Wpm.Management.Api/Dockerfile -t ${{ secrets.ACR_LOGIN_SERVER }}/wpm-management-api:${{ github.sha }}
-            docker push ${{ secrets.ACR_LOGIN_SERVER }}/wpm-management-api:${{ github.sha }}
+            docker build src -f src/Wpm.Management.Api/Dockerfile -t ${{ secrets.ACR_LOGIN_SERVER }}/wpm-management-api:$DATE.$SEQ
+            docker push ${{ secrets.ACR_LOGIN_SERVER }}/wpm-management-api:$DATE.$SEQ
   
