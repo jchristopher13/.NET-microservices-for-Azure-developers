@@ -9,8 +9,8 @@ USER app
 FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG configuration=Release
 WORKDIR /src
-COPY ["src/Wpm.Management.Api/Wpm.Management.Api.csproj", "src/Wpm.Management.Api/"]
-RUN dotnet restore "src/Wpm.Management.Api/Wpm.Management.Api.csproj"
+COPY ["/src/Wpm.Management.Api/Wpm.Management.Api.csproj", "/src/Wpm.Management.Api/"]
+RUN dotnet restore "/src/Wpm.Management.Api/Wpm.Management.Api.csproj"
 COPY . .
 WORKDIR "/src/Wpm.Management.Api"
 RUN dotnet build "Wpm.Management.Api.csproj" -c $configuration -o /app/build
