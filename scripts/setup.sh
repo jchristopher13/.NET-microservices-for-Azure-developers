@@ -13,8 +13,8 @@ readonly CREATE_ACR="az acr create --resource-group ${RESOURCE_GROUP} --name ${A
 echo "Creating Azure Container Apps environment..."
 readonly CREATE_CONTAINER_ENV="az containerapp env create --name wpmcontainerappenv --resource-group ${RESOURCE_GROUP} --location ${LOC} --logs-destination azure-monitor"
 
-eval $CREATE_GROUP
-eval $CREATE_ACR
-eval $CREATE_CONTAINER_ENV
+# eval $CREATE_GROUP
+# eval $CREATE_ACR
+# eval $CREATE_CONTAINER_ENV
 
 eval $CREATE_ACR # Force a change
