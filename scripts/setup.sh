@@ -17,4 +17,4 @@ readonly CREATE_CONTAINER_ENV="az containerapp env create --name wpmcontainerapp
 # eval $CREATE_ACR
 # eval $CREATE_CONTAINER_ENV
 
-eval $CREATE_ACR # Force a change
+eval $CREATE_ACR # Force a change...
