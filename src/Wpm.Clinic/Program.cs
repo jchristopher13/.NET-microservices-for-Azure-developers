@@ -25,7 +25,8 @@ builder.Services.AddDbContext<ClinicDbContext>(options =>
 
 builder.Services.AddHttpClient<ManagementService>(client =>
 {
-    var uri =builder.Configuration.GetValue<string>("Wpm:ManagementUri");
+    var uri = builder.Configuration.GetValue<string>("Wpm__ManagementUri") ??
+    builder.Configuration.GetValue<string>("Wpm:ManagementUri");
     client.BaseAddress = new Uri(uri);
 }).AddResilienceHandler("management-pipline", builder =>
 {
@@ -35,13 +36,6 @@ builder.Services.AddHttpClient<ManagementService>(client =>
             BackoffType = DelayBackoffType.Exponential,
             Delay = TimeSpan.FromSeconds(10)
         });
-
-    // builder.AddRetry(new PollyStrategyOptions<HttpResponseMessage>()
-    // {
-    //     BackoffType = DelayBackoffType.Exponential,
-    //     MaxRetryAttempts = 3,
-    //     Delay = TimeSpan.FromSeconds(10)
-    // });
 });
 
 var app = builder.Build();
