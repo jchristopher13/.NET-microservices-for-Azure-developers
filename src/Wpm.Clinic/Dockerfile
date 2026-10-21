@@ -9,10 +9,10 @@ USER app
 FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG configuration=Release
 WORKDIR /src
-COPY ["src/Wpm.Clinic/Wpm.Clinic.csproj", "src/Wpm.Clinic/"]
+COPY ["/Wpm.Clinic/Wpm.Clinic.csproj", "/Wpm.Clinic/"]
 RUN dotnet restore "src/Wpm.Clinic/Wpm.Clinic.csproj"
 COPY . .
-WORKDIR "/src/src/Wpm.Clinic"
+WORKDIR "/src/Wpm.Clinic"
 RUN dotnet build "Wpm.Clinic.csproj" -c $configuration -o /app/build
 
 FROM build AS publish
