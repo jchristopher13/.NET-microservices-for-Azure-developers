@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="Wpm.Clinic/Wpm.Clinic.csproj" />
   <Project Path="Wpm.Management.Api/Wpm.Management.Api.csproj" />
 </Solution>
