@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS base
 WORKDIR /app
-EXPOSE 5038
-EXPOSE 7222
+EXPOSE 8080
+EXPOSE 8081
 
 ENV ASPNETCORE_URLS=http://+:5038
 
